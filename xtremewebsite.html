@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      body {
+          font-family: 'Roboto', sans-serif;
+      }
+      a {
+          text-decoration: none;
+      }
+      li {
+          list-style: none;
+      }
+
+      .navbar {
+          display: flex;
+          align-items: center;
+          justify-content:space-around;
+          background-color: #ffffff;
+          color: #FF5E14;
+          font-weight: bold;
+      }
+      .nav-links a {
+          color: #FF5E14;
+          font-weight: bold;
+      }
+      .xtremelogo{
+        width: 10em;;
+      }
+      /* LOGO */
+      .logo {
+          font-size: 32px;
+      }
+      /* NAVBAR MENU */
+      .menu {
+          display: flex;
+          gap: 1em;
+          font-size: 18px;
+          z-index: 1;
+      }
+      .menu li:hover {
+          color: #ffffff;
+          border-radius: 5px;
+          transition: 0.3s ease;
+      }
+      .menu li {
+          padding: 5px 14px;
+      }
+      /* DROPDOWN MENU */
+      .services {
+          position: relative;
+      }
+
+      .bright-future{
+        width:100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+      }
+
+      .xtreme-img {
+        padding: 50px;
+        margin-left: 100px;
+      }
+      .xtreme-intro{
+        padding: 50px;
+      }
+
+      .xtreme-intro h2{
+        font-weight: bold;
+        color:#131D46;
+      }
+
+      .xtreme-intro li{
+        margin: 20px 0px;
+        color: #767A7F;
+      }
+
+      .fa-arrow-right{
+        color: #FF5E14;
+      }
+
+      /* About us Start */
+      .about-us{
+        width: 100%;
+        height: auto;
+        background-color:#131D46;
+      }
+
+      .about-us h4{
+        color: #FF5E14;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .about-us h2{
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .our-services2-detail{
+        display: flex;
+        justify-content: center;
+      }
+
+      .our-detail{
+        width: 18%;
+        height: auto;
+        border-color: #ffffff;
+        border-style: solid;
+        border-width: thin;
+        justify-content:left;
+        color: #ffffff;
+        margin: 30px;
+      }
+
+      .our-detail li{
+        padding: 5px 14px;
+      }
+
+      .our-detail h3{
+        text-decoration: underline;
+        text-decoration-color:#FF5E14;
+        text-underline-position: under;
+        text-decoration-thickness: 5px;
+      }
+      /* About us End */
+
+      /* Our Service Start */
+      .freight-type{
+        width: 100%;
+        height: auto;
+        background-color:#ffffff;
+        display: flex;
+        justify-content: center;
+      }
+
+      .freight{
+        width: 18%;
+        height: auto;
+        border-width: thin;
+        color: #767A7F;
+        margin: 30px;
+        text-align: center;
+      }
+
+      .bulk-img{
+        width: 64px;
+        height: 64px;
+      }
+
+      .our-services h4{
+        color: #FF5E14;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .our-services h2{
+        color: #131D46;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      /* Our Service End */
+
+      /* Our Service 2 Start */
+      .our-services2{
+        width: 100%;
+        height: auto;
+        background-color:#131D46;
+      }
+
+      .our-services2 h4{
+        color: #FF5E14;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .our-services2 h2{
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .about-detail{
+        display: flex;
+        justify-content: center;
+      }
+
+      .service2-detail{
+        width: 18%;
+        height: auto;
+        border-color: #ffffff;
+        border-style: solid;
+        border-width: thin;
+        justify-content:left;
+        color: #ffffff;
+        margin: 30px;
+      }
+
+      .service2-detail li{
+        padding: 5px 14px;
+      }
+
+      .service2-detail h3{
+        color: #FF5E14;
+        font-weight: bold;
+        text-align: center;
+      }
+      /* Our Service 2 End */
+      
+      input[type=checkbox]{
+          display: none;
+      }
+      /*HAMBURGER MENU*/
+      .hamburger {
+          display: none;
+          font-size: 24px;
+          user-select: none;
+      }
+      /* APPLYING MEDIA QUERIES */
+      @media (max-width: 768px) {
+          .menu {
+              display:none;
+              position: absolute;
+              background-color:#ffffff;
+              right: 0;
+              left: 0;
+              text-align: center;
+              padding: 16px 0;
+          }
+          .menu li:hover {
+              display: inline-block;
+              background-color:#ffffff;
+              transition: 0.3s ease;
+          }
+          .menu li + li {
+              margin-top: 12px;
+          }
+          input[type=checkbox]:checked ~ .menu{
+              display: block;
+          }
+          .hamburger {
+              display: block;
+          }
+          
+          .xtreme-img{
+            width: auto;
+            margin-left: 0px;
+            padding: 0px;
+          }
+          .trade-img {
+            width: auto;
+            max-width: 400px;
+            height: auto;
+          }
+        
+          .bright-future{
+            width:100%;
+            height: 50%;
+            display: block;
+          }
+
+          .about-detail{
+            display: block;
+          }
+
+          .our-detail{
+            width: auto;
+            height: auto;
+          }
+
+          .our-services2-detail{
+            display: block;
+          }
+
+          .service2-detail{
+            width: auto;
+            height: auto;
+          }
+
+          .freight-type{
+            display: block;
+          }
+
+          .freight{
+            width: auto;
+            height: auto;
+          }
+      }
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+      }
+
+
+      .footer {
+        background-color: #0099cc;
+        color: #ffffff;
+        text-align: center;
+        font-size: 12px;
+        padding: 15px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./logo.PNG" class="xtremelogo">
+      </div>
+      <ul class="nav-links">
+        <!-- USING CHECKBOX HACK -->
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+          <li>
+            <a href="#demo">HOME</a>
+          </li>
+          <li>
+            <a href="#bright-future">ABOUT US</a>
+          </li>
+          <li class="services">
+            <a href="#our-services">OUR SERVICES</a>
+          </li>
+          <li>
+            <a href="#contact-us">CONTACT US</a>
+          </li>
+          <li>
+            <a href="#">PAY</a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+      
+      <!-- The slideshow -->
+      <div class="carousel-inner" style="width: 100%;max-height: 600px;">
+        <div class="carousel-item active">
+          <img src="./1.jpg" alt="Los Angeles" height="500" style="width: 100%;height: 600px;">
+        </div>
+        <div class="carousel-item">
+          <img src="./2.jpg" alt="Chicago" height="500" style="width: 100%;height: 600px;">
+        </div>
+        <div class="carousel-item">
+          <img src="./3.jpg" alt="New York" height="500" style="width: 100%;height: 600px;">
+        </div>
+      </div>
+      
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+    <div class="bright-future" id="bright-future">
+      <div class="xtreme-img">
+        <img src="./trade.jpg" class="trade-img">
+      </div>
+      <div class="xtreme-intro">
+        <h2>
+          XTREME FREIGHT SOLUTIONS Inc.
+        </h2>
+        <ul>
+          <li>
+            <i class="fa fa-arrow-right"></i>
+            XTREME FREIGHT SOLUTIONS is an experienced service provider whom can give you specialized services for all your supply chain logistics needs.
+          </li>
+          <li>
+            <i class="fa fa-arrow-right"></i>
+            We are located close to the LAX airport and Long Beach port which gives you benefits efficiently to transport cargos to/from 
+            the airport/port in time wise and cost wise.
+          </li>
+          <li>
+            <i class="fa fa-arrow-right"></i>
+            Our services are vital in southern California areas and provide nationwide services with accurate and detailed services in a timely manner.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--About us Start-->
+    <div class="about-us">
+      <br>
+      <h4>
+        About us
+      </h4>
+      <h2>
+        Why Choose Us!
+      </h2>
+      <div class="about-detail">
+        <div class="our-detail">
+          <h3>
+            &nbsp;Our Vision
+          </h3>
+          <ul>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              To be recognized as the International Leading Logistics Provider to the Transformer & Power Industry.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              To expand our export consolidation program globally, with direct containers to all major destinations.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              To fully utilize our warehouse capability by managing a global inbound break-bulk program, capable of providing DDU/DDP service.
+            </li>
+          </ul>
+        </div>
+        <div class="our-detail">
+          <h3>
+            &nbsp;Our Mission
+          </h3>
+          <ul>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Providing an Atmosphere of Opportunity & Growth for all Employees.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Ethical Behavior & Professional Treatment to all.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Teamwork & Individual Empowerment.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Continuous Improvement & Innovation.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Development of Business Partnerships that Encourage Participation & Promotes Individual Profitability.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Providing a Relevant & Competitive Service to all Stakeholders.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Successful completion of all business transactions and ongoing mutual relationship.
+            </li>
+          </ul>
+        </div>
+        <div class="our-detail">
+          <h3>
+            &nbsp;
+            Our Values
+          </h3>
+          <ul>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              To assist our agents, direct customers & business partners achieve their objectives, by 
+              providing them the logistics solutions that enable them to better understand the global logistics market & to prosper financially.
+            </li>
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              To provide our customers the prompt follow up and accuracy.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--About us end-->
+
+    <!--our services start-->
+    <div class="our-services" id="our-services">
+      <br>
+      <h4>
+        Our Services
+      </h4>
+      <h2>
+        Delivering The Best Global Logistics Solutions.
+      </h2>
+      <div class="freight-type">
+        <div class="freight">
+          <img src="./ocean.png">
+          <h3>Ocean Freight</h3>
+          <p>
+            Import
+          </p>
+          <p>
+            Export
+          </p>
+        </div>
+        <div class="freight">
+          <img src="./air.png">
+          <h3>Air Freight</h3>
+          <p>
+            Import
+          </p>
+          <p>
+            Export
+          </p>
+        </div>
+        <div class="freight">
+          <img class="bulk-img" src="./bulk.png">
+          <h3>Bulk</h3>
+          <p>
+            Global Break-Bulk Service
+          </p>
+          <p>
+            Project Shipments
+          </p>
+        </div>
+      </div>
+
+      <div class="freight-type">
+        <div class="freight">
+          <img src="./ground.png">
+          <h3>Ocean Freight</h3>
+          <p>
+            Import
+          </p>
+          <p>
+            Export
+          </p>
+        </div>
+        <div class="freight">
+          <img class="bulk-img" src="./warehouse.png">
+          <h3>Air Freight</h3>
+          <p>
+            Import
+          </p>
+          <p>
+            Export
+          </p>
+        </div>
+        <div class="freight">
+          <img class="bulk-img" src="./otherservice.png">
+          <h3>Bulk</h3>
+          <p>
+            Global Break-Bulk Service
+          </p>
+          <p>
+            Project Shipments
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--our services end-->
+
+    <!--our services 2 Start-->
+    <div class="our-services2">
+      <br>
+      <h2>
+        Global Logistics System
+      </h2>
+      <div class="our-services2-detail">
+        <div class="service2-detail">
+          <h3>
+            &nbsp;Freight Forwarding
+          </h3>
+          <ul>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Global shipping services via air, ocean and inland
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Determine the best route to get your products to market
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Consolidate to take advantage of better pricing
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Stay informed of shipment status and prompt reply
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Experience smooth hand-offs between freight and brokerage
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Rest assured your compliance obligations are met
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Customs brokerage services
+            </li>
+          </ul>
+        </div>
+        <div class="service2-detail">
+          <h3>
+            &nbsp;Inland Transportations
+          </h3>
+          <ul>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Ocean drayage, LTL, FTL
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Standard dry vans, food-grade, reefers
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Flatbeds to more specialized Conestoga Flatbeds
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Oversize, Double Drops, and RGNs
+            </li>
+          </ul>
+        </div>
+        <div class="service2-detail">
+          <h3>
+            &nbsp;
+            Warehouse Management System
+          </h3>
+          <ul>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Receiving
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Transloading
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Picking and packing
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Assembling
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Kitting
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Packaging
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Web order processing
+            </li>
+            <li>
+              <i class="fa fa-circle-o"></i>
+              Reverse logistics
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--our services 2 end-->
+
+    <div class="our-services contact-us" id="contact-us">
+      <br>
+      <h4>
+        Contact Us
+      </h4>
+      <h2>
+        Get In Touch
+      </h2>
+      <div class="freight-type">
+        <div class="freight">
+          <h2>
+            Need to Make an Inquiry?
+          </h2>
+          <ul>
+            <li style="margin: 5px 14px;text-align: left;">
+              <p>
+                First Name<label style="color: red;">*</label>
+              </p>
+              <input type="text" class="form-control form-control lg" placeholder="E.g.John" style="background-color:#EDEDED;">
+            </li>
+            <li style="margin: 5px 14px;text-align: left;">
+              <p>
+                Your Email Address<label style="color: red;">*</label>
+              </p>
+              <input type="text" class="form-control form-control lg" placeholder="E.g.John@doe.com" style="background-color:#EDEDED;">
+            </li>
+            <li style="margin: 5px 14px;text-align: left;">
+              <p>
+                Phone Number
+              </p>
+              <input type="text" class="form-control form-control lg" placeholder="E.g. +1 3004005000" style="background-color:#EDEDED;">
+            </li>
+            <li>
+              <p style="margin: 5px 14px;text-align: left;">
+                Message
+              </p>
+              <textarea class="form-control" rows="6" style="background-color:#EDEDED;" placeholder="Enter your message..."></textarea>
+            </li>
+            <li style="margin: 5px 14px;text-align: left;">
+              <p>
+                
+              </p>
+              <input type="button" class="btn btn-primary" value="Send Message">
+            </li>
+          </ul>
+        </div>
+        <div class="freight" style="background-color:#FDFDFD;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.6043173571516!2d-118.08329568441717!3d34.079656123731596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2da90e5943c55%3A0x9d7602876ce1aca9!2s3951%20Gernert%20Ave%2C%20Rosemead%2C%20CA%2091770!5e0!3m2!1sko!2sus!4v1675754205125!5m2!1sko!2sus" 
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <ul style="text-align: left;">
+            <li>
+              <i class="fa fa-map" style="color: #FF5E14;"></i>
+              3951 Gernert Ave,Rosemead,CA,91770
+            </li>
+            <li>
+              <i class="fa fa-envelope" style="color: #FF5E14;"></i>
+              info@xtremefreightsolutions.com
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© Copyright 2023 - 2028 Xtreme Freight Solutions Inc.All rights reserved.</p>
+    </div>
+  </body>
+</html>
